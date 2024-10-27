@@ -34,12 +34,8 @@ local plugins = {
 	{ "nvimtools/none-ls.nvim" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "christoomey/vim-tmux-navigator" },
-	{
-		"sainnhe/everforest",
-		lazy = false,
-		priority = 1000,
-	},
 	{ "tpope/vim-surround" },
+  { "rose-pine/neovim", name = "rose-pine" },
 }
 local opts = {}
 
@@ -55,12 +51,12 @@ require("nvim-treesitter.configs").setup({
 -- mason config
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "tsserver" },
+	ensure_installed = { "lua_ls", "ts_ls" },
 })
 
 -- lspconfig
 require("lspconfig").lua_ls.setup({})
-require("lspconfig").tsserver.setup({})
+require("lspconfig").ts_ls.setup({})
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
@@ -76,8 +72,5 @@ null_ls.setup({
 
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 
--- everforest theme
-vim.g.everforest_enable_italic = true
-vim.g.everforest_background = "soft"
-vim.g.everforest_transparent_background = 1
-vim.cmd.colorscheme("everforest")
+-- Theme
+vim.cmd("colorscheme rose-pine-dawn")
