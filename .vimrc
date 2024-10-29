@@ -25,15 +25,3 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
-
-packadd! everforest
-
-if has('termguicolors')
-set termguicolors
-endif
-
-set background=dark
-
-let g:everforest_background = 'hard'
-
-colorscheme everforest
